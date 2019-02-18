@@ -20,4 +20,4 @@ This repository has all the files that belongs to the Dashboard application.
 
 ## Presentation
 
-![Wisehub](https://github.com/j2k850/wisehub-dashboard/blob/master/Wisehub.pdf)
+![Wisehub](https://docs.google.com/viewer?url=${https://github.com/j2k850/wisehub-dashboard/blob/master/Wisehub.pdf})
