@@ -1,0 +1,49 @@
+<div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="horizontal-scroll">
+    
+                    <table class="table customersTable" st-safe-src="products.newProducts" st-table="products.products" st-set-filter="strictFilter">
+                        <thead>
+                            <tr class="sortable ">
+                                <th st-sort="name">Product name</th>
+                                <th class="status" >Status</th>
+                                <th class="productActions">Actions</th>
+                            </tr>
+                            <tr>
+                                <th><input st-search="name" placeholder="Product Name" class="input-sm form-control search-input" type="search" /></th>
+                                <th>                                        
+                                    <select st-search="active">
+                                        <option value="">All</option>
+                                        <option value="false">Inactive</option>
+                                        <option value="true">Active</option>
+                                    </select>    
+                                </th>
+                                <th class="productActions">
+                                    <button class="btn btn-info editable-table-button btn-xs" ng-click="products.newItemModal()">Add</button> 
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in products.products">
+                                    <td>{{ item.name }}</td>
+                                    <td class="status"><i class="fa" ng-class="{'fa-check-circle': item.active, 'fa-times-circle': !item.active }"  aria-hidden="true"></i></td>
+                                    <td class="status">
+                                        <button class="btn btn-warning editable-table-button btn-xs" ng-click="products.rules(item.id)">Rules</button>
+                                        <button class="btn btn-success editable-table-button btn-xs" ng-click="console.log('edit!')">Edit</button> 
+                                        <button class="btn btn-danger editable-table-button btn-xs" ng-click="products.deleteModal(item.id)">Delete</button>
+                                    </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="text-center">
+                                    <div st-pagination="" st-items-by-page="producrs.pageSize" st-displayed-pages="5"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>

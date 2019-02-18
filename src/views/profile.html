@@ -1,0 +1,149 @@
+<h2>biyayi@wisehub.io</h2>
+<div class="row">
+    <div class="leftPanel col-md-2">
+        <div class="userInfoPanel panel panel-default bootstrap-panel ">
+            <div class="infoPanelImage">
+                <img src="assets/img/app/profile/user.png" />
+            </div>
+            <div class="infoPanelText"><i class="ion-android-person"></i> <div class="phoneText">Barbara Iyayi</div></div>
+            <div class="infoPanelText"><i class="ion-android-pin"></i> <div class="phoneText">Victoria Island</div></div>
+            <div class="infoPanelText"><i class="ion-female"></i> <div class="phoneText">Female</div></div>
+            <div class="infoPanelText">
+                <i class="ion-ios-telephone"></i>
+                <div class="phoneText">
+                    <span class="phoneType">Business:</span>
+                    <span>555-55555</span>
+                    <span class="phoneType">Home:</span>
+                    <span>555-55555</span>
+                    <span class="phoneType">Mobile:</span>
+                    <span>555-55555</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default bootstrap-panel rightPanel col-md-10">
+        <div class="row">
+            <div class="col-md-2 firstIndicator">
+                <p class="attr-value green-indicator">$1,350</p>
+                <p class="attr-label">Lifetime value</p>
+                <p class="attr-value green-indicator">$3,350</p>
+                <p class="attr-label">Earnings</p>
+            </div>
+            <div class="col-md-3">
+                <p class="attr-value">7</p>
+                <p class="attr-label">Number of accounts</p>
+                <p class="attr-value">8</p>
+                <p class="attr-label">Number of sales</p>
+            </div>
+            <div class="col-md-3">
+                <p class="attr-value">7</p>
+                <p class="attr-label">Number of engagements</p>
+                <p class="attr-value">8</p>
+                <p class="attr-label">Number of sales pending</p>
+            </div>
+            <div class="col-md-2">
+                <p class="attr-value">Jan 7, 2017</p>
+                <p class="attr-label">First purchase</p>
+                <p class="attr-value">Jan 7, 2017</p>
+                <p class="attr-label">First engagement</p>
+            </div>
+            <div class="col-md-2">
+                <p class="attr-value">Nov 13, 2017</p>
+                <p class="attr-label">Last purchase</p>
+                <p class="attr-value">Nov 13, 2017</p>
+                <p class="attr-label">Last engagement</p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default bootstrap-panel col-md-10">
+        <div class="row">
+            <uib-tabset active="$tabSetStatus.activeTab">
+                <uib-tab heading="Events">
+                    <table class="table customersTable" st-table="profile.events">
+                        <thead>
+                            <tr>
+                                <th class="actions">Date</th>
+                                <th>Event</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in profile.events">
+                                <td>
+                                    {{item.eventDate}}
+                                </td>
+                                <td>
+                                    {{ item.name }}
+                                </td>
+                                <td>
+                                    {{item.description}}
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" class="text-center">
+                                    <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </uib-tab>
+                <uib-tab heading="Sales">
+                    <table class="table customersTable" st-table="profile.sales">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in profile.sales">
+                                <td>
+                                    {{item.name}}
+                                </td>
+                                <td>
+                                    {{item.value}}
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" class="text-center">
+                                    <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </uib-tab>
+                <uib-tab heading="Finances">
+                    <table class="table customersTable" st-table="profile.finances">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in profile.finances">
+                                <td>
+                                    {{item.name}}
+                                </td>
+                                <td>
+                                    {{ item.value }}
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" class="text-center">
+                                    <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </uib-tab>
+            </div>
+    </div>
+</div>

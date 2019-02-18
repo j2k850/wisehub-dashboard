@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <div class="horizontal-scroll">
+
+                <table class="table customersTable" st-safe-src="customers.newUsers" st-table="customers.users">
+                    <thead>
+                        <tr class="sortable ">
+                            <th st-sort="customerName">Customer Name</th>
+                            <th st-sort="email">Email</th>
+                            <th st-sort="update">Last Update</th>
+                            <th class="status" >Status</th>
+                            <th class="productActions">Actions</th>
+                        </tr>
+                        <tr>
+                            <th><input st-search="customerName" placeholder=" Customer Name" class="input-sm form-control search-input" type="search" /></th>
+                            <th><input st-search="email" placeholder=" email" class="input-sm form-control search-input" type="search" /></th>
+                            <th><input st-search="update" placeholder=" last update" class="input-sm form-control search-input" type="search" /></th>
+                            <th>
+                                <select>
+                                    <option value="All">All</option>
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Active">Active</option>
+                                </select>
+                            </th>
+                            <th class="productActions">
+                                <button class="btn btn-info editable-table-button btn-xs" ng-click="customers.newCustomerModal()">Add</button> 
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in customers.users">
+                                <td>{{ item.name.firstName }}</td>
+                                <td>{{ item.email }}</td>
+                                <td>{{ item.updatedAt }}</td>
+                                <td class="status"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
+                                <td class="status">
+                                    <button class="btn btn-success editable-table-button btn-xs" ng-click="console.log('edit!')">Edit</button>
+                                    <button class="btn btn-danger editable-table-button btn-xs" ng-click="customers.deleteModal(item.id)">Delete</button>
+                                </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-center">
+                                <div st-pagination="" st-items-by-page="customers.smartTablePageSize" st-displayed-pages="5"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>

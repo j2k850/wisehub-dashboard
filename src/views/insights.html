@@ -1,0 +1,141 @@
+<h2>PRODUCT INSIGHTS</h2>
+<div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Product Recommendations" ba-panel-class="with-scroll">
+            <div class="chartjs-canvas-holder-first-row">
+                <canvas id="productsrecommendedChart" class="chart chart-doughnut" chart-data="insights.productsrecommended.data" chart-labels="insights.productsrecommended.labels" chart-colors="insights.colors" chart-options="insights.productsrecommended.options"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Product Recommendations Per Month" ba-panel-class="with-scroll">
+            <div class="chartjs-canvas-holder-first-row">
+                <canvas id="productBreakDownChart" class="chart chart-line" chart-data="insights.productBreakDown.data" chart-labels="insights.productBreakDown.labels" chart-series="insights.productBreakDown.series"  chart-colors="insights.colors" chart-options="insights.productBreakDown.options">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>CUSTOMER INSIGHTS</h2>
+<div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Unpurchased Product Reason" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="customersRationaleChart" class="chart chart-pie" chart-data="insights.customersRationaleChart.data" chart-labels="insights.customersRationaleChart.labels" chart-colors="insights.colors" chart-options="insights.customersRationaleChart.options"></canvas>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Inactive Customers" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="inactiveChart" class="chart chart-pie" chart-data="insights.inactiveChart.data" chart-labels="insights.inactiveChart.labels"  chart-colors="insights.colors" chart-options="insights.inactiveChart.options">
+            </canvas>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading panel-border">
+                POTENTIAL CUSTOMER PRODUCT PURCHASES
+                <span class="tools pull-right">
+                    <a class="refresh-box fa fa-repeat" href="javascript:;"></a>
+                    <a class="collapse-box fa fa-chevron-down" href="javascript:;"></a>
+                    <a class="close-box fa fa-times" href="javascript:;"></a>
+                </span>
+            </header>
+            <div class="horizontal-scroll">
+                <table class="table" st-table="insights.potentialCustomers">
+                    <thead>
+                        <tr class="sortable ">
+                            <th st-sort="firstName">Name</th>
+                            <th st-sort="email">Email</th>
+                            <th>Potential Products</th>
+                        </tr>
+                        <tr>
+                            <th><input st-search="firstName" placeholder="Search Name" class="input-sm form-control search-input" type="search"/></th>
+                            <th><input st-search="email" placeholder="Search Email" class="input-sm form-control search-input" type="search"/></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in insights.potentialCustomers">
+                            <td><a href="#">{{item.name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.description}}</td>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6" class="text-center">
+                                <div st-pagination="" st-items-by-page="insights.pageSize" st-displayed-pages="5"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading panel-border">
+                    PRODUCT RECOMMENDATIONS UNABLE TO BE FULFILLED
+                <span class="tools pull-right">
+                    <a class="refresh-box fa fa-repeat" href="javascript:;"></a>
+                    <a class="collapse-box fa fa-chevron-down" href="javascript:;"></a>
+                    <a class="close-box fa fa-times" href="javascript:;"></a>
+                </span>
+            </header>
+            <div class="horizontal-scroll">
+                <table class="table" st-table="insights.customersNotRecommendation">
+                    <thead>
+                        <tr class="sortable ">
+                            <th st-sort="firstName">Name</th>
+                             <th st-sort="email">Email</th>
+                        </tr>
+                        <tr>
+                            <th><input st-search="firstName" placeholder="Search Name" class="input-sm form-control search-input" type="search"/></th>
+                            <th><input st-search="email" placeholder="Search Email" class="input-sm form-control search-input" type="search"/></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in insights.customersNotRecommendation">
+                            <td><a href="#">{{item.name}}</td>
+                            <td>{{item.email}}</td>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                        <td colspan="6" class="text-center">
+                            <div st-pagination="" st-items-by-page="insights.pageSize" st-displayed-pages="5"></div>
+                        </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-md-12" ba-panel ba-panel-title="Customers Personal Breakdown" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="customerSituationChart" class="chart chart-doughnut" chart-data="insights.customerSituationChart.data" chart-labels="insights.customerSituationChart.labels" chart-colors="insights.colors">
+            </canvas>
+        </div>
+    </div>
+</div>
+<h2>FEE FORECAST</h2>
+<div class="row">
+    <wisehub-panel sizesm="{{ insights.secondPanelRow.sm }}" sizemd="{{ insights.secondPanelRow.md }}"
+    name="{{ insights.recommendedCustomers.name }}"
+    icon="{{ insights.recommendedCustomers.iconClass }}"
+    text="{{ insights.recommendedCustomers.textClass }}"
+    number="{{ insights.recommendedCustomers.number }}"
+    meassure="{{ insights.recommendedCustomers.meassure }}"
+    percentage="{{ insights.recommendedCustomers.percentage }}">
+    </wisehub-panel>
+    <wisehub-panel sizesm="{{ insights.secondPanelRow.sm }}" sizemd="{{ insights.secondPanelRow.md }}"
+    name="{{ insights.dolarsEarnt.name }}"
+    icon="{{ insights.dolarsEarnt.iconClass }}"
+    text="{{ insights.dolarsEarnt.textClass }}"
+    number="{{ insights.dolarsEarnt.number }}"
+    meassure="{{ insights.dolarsEarnt.meassure }}"
+    percentage="{{ insights.dolarsEarnt.percentage }}">
+    </wisehub-panel>
+
+    <div class="col-md-12" ba-panel ba-panel-title="Per Product Fee Amount" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="dolarAmountChart" class="chart chart-doughnut" chart-data="insights.dolarAmountChart.data" chart-labels="insights.dolarAmountChart.labels" chart-colors="insights.colors">
+            </canvas>
+        </div>
+    </div>
+</div>

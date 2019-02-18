@@ -1,0 +1,83 @@
+<div class="modal-content">
+    <div class="modal-header bg-info">
+        <i class="ion-android-info modal-icon"></i><span> New Rule</span>
+    </div>
+    <form name="newRuleForm" class="form-horizontal" novalidate="" ng-submit="submit()">
+    <div class="modal-body">
+            <div class="form-group">
+               <div class="col-sm-10" ng-class="{ 'has-error': newRuleForm.ruleName.$invalid && newRuleForm.ruleName.$dirty }">
+                    <label for="productName">Product name</label>
+                    <input type="text" class="form-control" name="ruleName" id="ruleName" ng-model="ruleName" placeholder="Rule name" required/>
+                    <span ng-show="newRuleForm.ruleName.$invalid && newRuleForm.ruleName.$dirty" class="help-block dark-error">Rule name is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                    <div class="col-sm-10">
+                        <label for="When">When 
+                            <button type="button" class="btn btn-info btn-icon" ng-click="addCondition()">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </button>
+                        </label>
+
+                        <div class="row ruleRow" ng-repeat="cond in conditions">
+                            <div class="col-xs-4">  
+                                <select  class="form-control" >
+                                    <option value="age">Age</option>
+                                    <option value="creditRating">Credit Rating</option>
+                                </select>
+                            </div>       
+                            <div class="col-xs-4">  
+                                <select  class="form-control" >
+                                    <option value="equal">equal</option>
+                                    <option value="less">less than</option>
+                                    <option value="greather">greather than</option>
+                                    <option value="greatherEqual">greather equal than</option>
+                                    <option value="lessEqual">less equal than</option>
+                                </select> 
+                            </div>
+                            <div class="col-xs-2">  
+                                <input class="form-control" type="text"  />
+                            </div>
+                            <div class="col-xs-2">  
+                                    
+                                <button type="button" class="btn btn-info btn-icon" ng-click="removeCondition($index)">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>    
+                            </div>    
+                        </div>
+                    </div>    
+            </div> 
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <label for="When">Then 
+                        <button type="button" class="btn btn-info btn-icon" ng-click="addAction()">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        </button>
+                    </label>
+
+                    <div class="row ruleRow" ng-repeat="act in actions">
+                        <div class="col-xs-4">  
+                            <select  class="form-control" >
+                                <option value="age">Modify value of loan application</option>
+                                <option value="creditRating">Credit Rating</option>
+                            </select>
+                        </div>       
+                        <div class="col-xs-2">  
+                            <input class="form-control" type="text"  value="True"/>
+                        </div>
+                        <div class="col-xs-2">  
+                            <button type="button" class="btn btn-info btn-icon" ng-click="removeAction($index)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>    
+                        </div>    
+                    </div>
+                </div>    
+            </div>    
+    </div>
+    <div class="modal-footer">
+    <button type="submit" class="btn btn-info">Save</button>
+    <button type="button" class="btn btn-info" ng-click="$dismiss()">Cancel</button>
+    </div>
+</form>
+</div>
+      

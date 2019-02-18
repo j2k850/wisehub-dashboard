@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="panel" ba-panel ba-panel-title="Manage Subscription">
+        <div class="form-group col-sm-10">
+            <label class="col-sm-2 control-labe account-subs-label">Tier</label>
+            <div class="col-sm-2">
+                <select class="form-control" ng-model="account.currentTier">
+                    <option  ng-repeat="item in account.tiers" ng-value="item.id">{{ item.name }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+            <label class="col-sm-2 control-label account-subs-label"># of users</label>
+            <div class="col-sm-2 input-group accounts-subs-input-wrapper ">
+                <span class="input-group-addon addon-left input-group-addon-info">#</span>
+                <input class="form-control subs-input" type="number" ng-model="account.numberOfUsers" />
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+            <label class="col-sm-2 control-label account-subs-label estimated-price">Estimated price</label>
+            <div class="col-sm-2 input-group accounts-subs-input-wrapper">
+                <span class="input-group-addon addon-left input-group-addon-info">$</span>
+                <input class="form-control subs-input " disabled="disabled" type="number" value="{{ account.numberOfUsers * account.getValue() }}" />
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2"></div>
+            <div class="form-group col-sm-1 ">
+                <button class="btn btn-info editable-table-button btn-xs" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel" ba-panel ba-panel-title="Branch Banker/Sales Representative">
+        <div class="form-group col-sm-10">
+            <label class="col-sm-2 control-labe account-subs-label">Branch</label>
+            <div class="col-sm-2">
+                <select class="form-control">
+                    <option value="1">Abuja	</option>
+                    <option value="2">Victoria Island</option>
+                    <option value="3">Yola</option>
+                    <option value="4">Jalingo</option>
+                    <option value="5">Kano</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+            <label for="Banker's name" class="col-sm-2 control-label account-subs-label">Banker's name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="bankerName" placeholder="Banker's name" />
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+            <label for="Banker's email" class="col-sm-2 control-label account-subs-label">Banker's email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="bankerEmail" placeholder="Banker's email" />
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2"></div>
+            <div class="form-group col-sm-1 ">
+                <button class="btn btn-info editable-table-button btn-xs" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="panel" ba-panel ba-panel-title="Customer Notifications Approver">
+        <div class="form-group col-sm-10">
+            <label for="Approver's name" class="col-sm-2 control-label account-subs-label">Approver's name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="approverName" placeholder="Approver's name" />
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+            <label for="Approver's email" class="col-sm-2 control-label account-subs-label">Approver's email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="approverEmail" placeholder="Approver's email" />
+            </div>
+        </div>
+        <div class="form-group col-sm-10">
+            <div class="col-sm-2"></div>
+            <div class="form-group col-sm-1 ">
+                <button class="btn btn-info editable-table-button btn-xs" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>

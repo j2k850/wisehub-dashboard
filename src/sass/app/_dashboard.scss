@@ -1,0 +1,43 @@
+@media screen and (min-width: 1620px) {
+  .row.shift-up {
+    > div {
+      margin-top: -573px;
+    }
+  }
+}
+
+@media screen and (max-width: 1620px) {
+ .panel.feed-panel.large-panel {
+   height: 824px;
+ }
+}
+
+.user-stats-panel {
+  .panel-title {
+    padding: 0 0 15px;
+  }
+}
+
+.blurCalendar{
+  height: 475px;
+}
+
+.wisehub-panel{
+
+  &-label {
+    border-radius: 3px 0 0 3px !important;
+    position: relative;
+    right: -1px;
+    padding: 6px 12px;
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-weight: normal;
+    margin-bottom: 5px;
+  }
+
+  &-title {
+    margin-top: 30px;
+    font-weight: normal;
+  }
+
+}

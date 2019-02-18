@@ -1,0 +1,98 @@
+<div class="row dashboard-select-row">
+Show by: <select  class="form-control" ng-change="dash.updateData()" ng-model="dash.currentFilter">
+    <option ng-repeat="item in dash.selectOptions" ng-value="item.value">{{item.label}}</option>
+</select>
+</div>
+
+<h2>CUSTOMERS</h2>
+<div class="row">
+    <wisehub-panel sizesm="{{ dash.firstPanelRow.sm }}" sizemd="{{ dash.firstPanelRow.md }}" name="{{ dash.customersNotified.name }}" icon="{{ dash.customersNotified.iconClass }}" text="{{ dash.customersNotified.textClass }}" number="{{ dash.customersNotified.number }}" meassure="{{ dash.customersNotified.meassure }}" percentage="{{ dash.customersNotified.percentage }}"></wisehub-panel>
+    <wisehub-panel sizesm="{{ dash.firstPanelRow.sm }}" sizemd="{{ dash.firstPanelRow.md }}" name="{{ dash.averageNotification.name }}" icon="{{ dash.averageNotification.iconClass }}" text="{{ dash.averageNotification.textClass }}" number="{{ dash.averageNotification.number }}" meassure="{{ dash.averageNotification.meassure }}" percentage="{{ dash.averageNotification.percentage }}"></wisehub-panel>
+    <wisehub-panel sizesm="{{ dash.firstPanelRow.sm }}" sizemd="{{ dash.firstPanelRow.md }}" name="{{ dash.customersResponded.name }}" icon="{{ dash.customersResponded.iconClass }}" text="{{ dash.customersResponded.textClass }}" number="{{ dash.customersResponded.number }}" meassure="{{ dash.customersResponded.meassure }}" percentage="{{ dash.customersResponded.percentage }}"></wisehub-panel>
+</div>
+<div class="row">
+    <wisehub-panel sizesm="{{ dash.secondPanelRow.sm }}" sizemd="{{ dash.secondPanelRow.md }}" name="{{ dash.pendingCustomers.name }}" icon="{{ dash.pendingCustomers.iconClass }}" text="{{ dash.pendingCustomers.textClass }}" number="{{ dash.pendingCustomers.number }}" meassure="{{ dash.pendingCustomers.meassure }}" percentage="{{ dash.pendingCustomers.percentage }}"></wisehub-panel>
+    <wisehub-panel sizesm="{{ dash.secondPanelRow.sm }}" sizemd="{{ dash.secondPanelRow.md }}" name="{{ dash.activeCustomers.name }}" icon="{{ dash.activeCustomers.iconClass }}" text="{{ dash.activeCustomers.textClass }}" number="{{ dash.activeCustomers.number }}" meassure="{{ dash.activeCustomers.meassure }}" percentage="{{ dash.activeCustomers.percentage }}"></wisehub-panel>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Top Customer Feedback" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="customerFeedbackChart" class="chart chart-doughnut" chart-data="dash.customerFeedbackChart.data" chart-labels="dash.customerFeedbackChart.labels" chart-colors="dash.colors" chart-options="dash.customerFeedbackChart.options"></canvas>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Top customers with high LTV" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="customerTopChart" class="chart chart-doughnut" chart-data="dash.customerTopChart.data" chart-labels="dash.customerTopChart.labels" chart-colors="dash.colors" chart-options="dash.customerTopChart.options">
+            </canvas>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" ba-panel ba-panel-title="Average customer lifetime value (LTV)" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="customerLifetimeChart" class="chart chart-line" chart-data="dash.customerLifetimeChart.data" chart-labels="dash.customerLifetimeChart.labels" chart-series="dash.customerLifetimeChart.series" >
+            </canvas>
+        </div>
+    </div>
+</div>
+<h2>ACCOUNTS</h2>
+<div class="row">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Accounts opened (by product) and hit ratio" ba-panel-class="with-scroll">
+            <div class="chartjs-canvas-holder-first-row">
+                <canvas id="accountsOpenedChart" class="chart chart-doughnut" chart-data="dash.accountsOpenedChart.data" chart-labels="dash.accountsOpenedChart.labels" chart-options="options" chart-colors="dash.colors"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Accounts pending (by product) " ba-panel-class="with-scroll">
+            <div class="chartjs-canvas-holder-first-row">
+                <canvas id="accountsPendingChart" class="chart chart-doughnut" chart-data="dash.accountsPendingChart.data" chart-labels="dash.accountsPendingChart.labels" chart-options="options" chart-colors="dash.colors"></canvas>
+            </div>
+        </div>
+    </div>
+ </div>
+ <div class="row">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Payments received (by product)" ba-panel-class="with-scroll">
+            <div class="chartjs-canvas-holder-first-row">
+                <canvas id="paymentsReceivedChart" class="chart chart-doughnut" chart-data="dash.paymentsReceivedChart.data" chart-labels="dash.paymentsReceivedChart.labels" chart-options="options" chart-colors="dash.colors"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Top Transaction categories" ba-panel-class="with-scroll">
+            <div class="chartjs-canvas-holder-first-row">
+                <canvas id="topTransactionsChart" class="chart chart-doughnut" chart-data="dash.topTransactionsChart.data" chart-labels="dash.topTransactionsChart.labels" chart-options="options" chart-colors="dash.colors"></canvas>
+            </div>
+        </div>
+    </div>
+ </div>
+<div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Overdraft customers over Time" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="overdraftCustomerChart" class="chart chart-line" chart-data="dash.overdraftCustomerChart.data" chart-labels="dash.overdraftCustomerChart.labels" chart-series="dash.overdraftCustomerChart.series">
+                </canvas>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12" ba-panel ba-panel-title="Inactive customers over Time" ba-panel-class="with-scroll">
+        <div class="chartjs-canvas-holder-first-row">
+            <canvas id="inactiveUsersChart" class="chart chart-line" chart-data="dash.inactiveUsersChart.data" chart-labels="dash.inactiveUsersChart.labels" chart-series="dash.inactiveUsersChart.series">
+            </canvas>
+        </div>
+    </div>
+ </div>
+ <h2>BILLING</h2>
+ <div class="row">
+     <div class="col-md-6">
+         <section class="panel panel-billings">
+             <h3><b>Billing Estimate</b></h3>
+             <p><b>$5</b><p>
+             <p>Next Charge: 31 Jan 2018</p>
+         </section>
+     </div>
+     <div class="col-md-6">
+         <section class="panel panel-billings">
+             <h3><b>Billing History</b></h3>
+             <p><b>30 Nov 2017</b> - $5<p>
+             <p><b>30 Oct 2017</b> - $5<p>
+         </section>
+     </div>
+ </div>
+</div>

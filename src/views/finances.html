@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <div class="horizontal-scroll">
+                <table class="table customersTable" st-table="finances.tableData">
+                    <thead>
+                        <tr class="sortable ">
+                            <th st-sort="customerName">Customer Name</th>
+                            <th st-sort="branch">Branch</th>
+                            <th st-sort="accounts"><span uib-tooltip="Customer's current number of accounts">Accounts</span></th>
+                            <th st-sort="sales"><span uib-tooltip="Banking products recommended to customer">Sales Recommended</span></th>
+                            <th st-sort="earnings"><span uib-tooltip="Total revenue attributed to WiseHub">Earnings</span></th>
+                            <th st-sort="lifeTimeValue"><span uib-tooltip="Customer's life time value">LTV</span></th>
+                            <th st-sort="responseTime"><span uib-tooltip="Customer's average time to respond to a platform message">RT</span></th>
+                            <th st-sort="engagements"><span uib-tooltip="Number of messages sent to customer">Engagements</span></th>
+                            <th st-sort="overdrafts"><span uib-tooltip="Number of times customer has overdrafted">Overdrafts</span></th>
+                            <th st-sort="inactive"><span uib-tooltip="Number of times customer has been inactive">Inactives</span></th>
+                            <th st-sort="categories"><span uib-tooltip="Customer's top transaction categories">Categories</span></th>
+                        </tr>
+                        <tr>
+                            <th><input st-search="customerName" placeholder="Search Customer Name" class="input-sm form-control search-input" type="search" /></th>
+                            <th><input st-search="branch" placeholder="Search Branch" class="input-sm form-control search-input" type="search" /></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>
+                                <select>
+                                    <option value="All">All</option>
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Active">Active</option>
+                                </select>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in finances.tableData">
+                                <td><a href="/#/main/profile">{{ item.customerName }}</a></td>
+                                <td>{{ item.branch }}</td>
+                                <td class="icon-cell">  <span uib-tooltip="EazySave Premium Account, Term Loan, etc">{{ item.accounts }}</span></td>
+                                <td class="icon-cell">  <span uib-tooltip="EazySave Premium Account, Term Loan, etc">{{ item.sales }}</span></td>
+                                <td class="small-cell">{{ item.earnings }}</td>
+                                <td class="small-cell">{{ item.lifeTimeValue }}</td>
+                                <td class="small-cell">{{ item.responseTime }}</td>
+                                <td class="small-cell">{{ item.engagements }}</td>
+                                <td class="small-cell">{{ item.overdrafts }}</td>
+                                <td class="status"><i class="fa fa-check-circle" aria-hidden="true"></i></td>
+                                <td>{{ item.categories }}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="11" class="text-center">
+                                <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>

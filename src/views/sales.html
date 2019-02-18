@@ -1,0 +1,84 @@
+<div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="horizontal-scroll">
+                    <table class="table salesTable" st-table="sales.tableData">
+                        <thead>
+                            <tr class="sortable ">
+                                <th st-sort="customerName">Customer Name</th>
+                                <th st-sort="branch">Branch</th>
+                                <th st-sort="salesRecommended"> <span uib-tooltip="Banking products recommended to customer">Sales Recommened</span></th>
+                                <th st-sort="salesOpened"><span uib-tooltip="Banking products we recommended to customer and customer said they are interested">Sales Opened</span></th>
+                                <th st-sort="salesPending"><span uib-tooltip="Banking products opened, banker notified but still is pending to be closed by banker. Requires a banker to complete the process">Sales Pending</span></th>
+                                <th st-sort="salesClosed"><span uib-tooltip="Banking products closed or active in banks system">Sales Closed</span></th>
+                                <th st-sort="hitRatio"><span uib-tooltip="Ratio of sales closed to sales recommended">Hit Ratio</span></th>
+                                <th st-sort="closeRatio"><span uib-tooltip="Ratio of sales closed to sales opened">Close Ratio</span></th>
+                                <th st-sort="ltv"><span uib-tooltip="Life time value of the customer">LTV</span></th>
+                                <th st-sort="earnings"><span uib-tooltip="Total money earned on customer">Earnings</span></th>
+                            </tr>
+                            <tr>
+                                <th><input st-search="customerName" placeholder="Search Customer Name" class="input-sm form-control search-input" type="search" /></th>
+                                <th><input st-search="branch" placeholder="Search Branch" class="input-sm form-control search-input" type="search" /></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th><input st-search="hitRatio" placeholder="Search Hit Ratio" class="input-sm form-control search-input" type="search"></th>
+                                <th><input st-search="closeRatio" placeholder="Search Close Ratio" class="input-sm form-control search-input" type="search" ></th>
+                                <th><input st-search="ltv" placeholder="Search LTV" class="input-sm form-control search-input" type="search"></th>
+                                <th><input st-search="earnings" placeholder="Search Earnings" class="input-sm form-control search-input" type="search"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in sales.tableData">
+                                    <td><a href="/#/main/profile">{{ item.customerName }}</a></td>
+                                    <td>{{ item.branch }}</td>
+                                    <td class="icon-cell">  <span uib-tooltip="EazySave Premium Account, Term Loan, etc">{{ item.salesRecommended }}</span></td>
+                                    <td class="icon-cell">  <span uib-tooltip="EazySave Premium Account, Term Loan, etc">{{ item.salesOpened }}</span></td>
+                                    <td class="icon-cell">  <span uib-tooltip="EazySave Premium Account, Term Loan, etc">{{ item.salesPending }}</span></td>
+                                    <td class="icon-cell">  <span uib-tooltip="EazySave Premium Account, Term Loan, etc">{{ item.salesClosed }}</span></td>
+                                    <td class="small-cell">{{ item.hitRatio }}</td>
+                                    <td class="small-cell">{{ item.closeRatio }}</td>
+                                    <td class="small-cell">{{ item.ltv }}</td>
+                                    <td class="small-cell">{{ item.earnings }}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="11" class="text-center">
+                                    <div st-pagination="" st-items-by-page="sales.smartTablePageSize" st-displayed-pages="5"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="horizontal-scroll">
+
+                    <table class="table customersTable" st-safe-src="sales.newItems" st-table="sales.items">
+                        <thead>
+                            <tr class="sortable ">
+                                <th st-sort="customerName">Sales Event</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in sales.items">
+                                    <td>{{item.date}} : {{item.customer}} - {{item.message}}   </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="text-center">
+                                    <div st-pagination="" st-items-by-page="sales.pageSize" st-displayed-pages="5"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
